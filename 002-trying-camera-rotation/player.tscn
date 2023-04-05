@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnjpx46lgtdej"]
+
+[ext_resource type="Script" path="res://002-trying-camera-rotation/player.gd" id="1_hh6xx"]
+[ext_resource type="Script" path="res://002-trying-camera-rotation/camera.gd" id="2_mjbr4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qgaxr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h4mgl"]
+
+[node name="Node" type="Node"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_qgaxr")
+script = ExtResource("1_hh6xx")
+
+[node name="Eyes" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(0.756152, 0, 0, 0, 0.150718, 0, 0, 0, 0.681159, 0, 0.414453, -0.3124)
+mesh = SubResource("BoxMesh_h4mgl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.781303, 0.624152, 0, -0.624152, 0.781303, 0, 9.79491, 21.6573)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.978917, 0.204257, 0, -0.204257, 0.978917, 0, 1.72223, 4.8368)
+script = ExtResource("2_mjbr4")
+target = NodePath("../../Body")

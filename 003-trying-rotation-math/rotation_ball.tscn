@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://31dxdvhy5fp6"]
+
+[ext_resource type="Script" path="res://003-trying-rotation-math/MeshInstance3D.gd" id="1_dn2vv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oo724"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, -17.6162, 31, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_oo724")
+script = ExtResource("1_dn2vv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1, 1)
